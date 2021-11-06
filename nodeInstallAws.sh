@@ -1,26 +1,27 @@
 #!/bin/bash
 
-#Update ubuntu instance
-sudo apt-get update
 
+#open ssh
+sudo ufw allow OpenSSH
 
-#Upgrade ubuntu system
-sudo apt-get upgrade
+#enable ufw
+sudo ufw enable
 
+#update and install nginx
+sudo apt update
+sudo apt install nginx
 
-#install ngnix
-sudo apt-get install nginx -y
-
-
-#nginx version
-nginx -v
-
+#nginx enable on ufw
+sudo ufw allow 'Nginx HTTP'
 
 #restart nginx
 sudo systemctl restart nginx
 
-
-#install nodejs ubuntu
-sudo apt-get install curl
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
+#install node
+cd ~
+curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+nano nodesource_setup.sh
+sudo apt install nodejs
+node -v
+npm -v
+sudo apt install build-essential
