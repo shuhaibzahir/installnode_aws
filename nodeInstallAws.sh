@@ -11,6 +11,7 @@ sudo ufw enable
 sudo apt update
 sudo apt install nginx
 
+
 #nginx enable on ufw
 sudo ufw allow 'Nginx HTTP'
 
