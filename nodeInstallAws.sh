@@ -20,9 +20,11 @@ sudo systemctl restart nginx
 
 #install node
 cd ~
-curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+echo "Enter the Nodejs version series example :16  :" 
+read version
+curl -sL https://deb.nodesource.com/setup_$version.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
-sudo apt install nodejs
+sudo apt install -y nodejs
 node -v
 npm -v
 sudo apt install build-essential
